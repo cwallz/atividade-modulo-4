@@ -69,7 +69,7 @@
 								<th>#</th>
 								<th>Nome</th>
 								<th>Email</th>
-								<th>Senha</th>
+								<!-- A senha do usuário não pode aparecer <th>Senha</th> -->
 								<th>Registro da Matrícula</th>
 								<th>Perfil</th>
 								<th>Ações</th>
@@ -80,9 +80,18 @@
 								<tr>
 									<td>${funcionario.idFuncionario}</td>
 									<td>${funcionario.nome}</td>
-									<td>${funcionario.email}</td>
-									<td>${funcionario.senha}</td>
-									<td>${funcionario.registroMatricula}</td>
+									<td>${funcionario.email}</td> 
+									<!-- A senha do usuário não pode aparecer <td>${funcionario.senha}</td> -->
+									<td>
+										<c:choose>
+											<c:when test="${funcionario.registroMatricula!=null}">
+												RM ${funcionario.registroMatricula}
+											</c:when>
+											<c:otherwise>
+												 ${funcionario.registroMatricula}
+											</c:otherwise>
+										</c:choose>
+									</td>
 									<td>${funcionario.perfil}</td>
 									<td>
 										<a href="FuncionarioUpdate?funcionarioId=${funcionario.idFuncionario}"> <button type="submit" class="btn btn-config"> <i class="bi bi-pencil-square"></i> Alterar</button></a>

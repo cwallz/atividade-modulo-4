@@ -67,7 +67,7 @@
 						<thead>
 							<tr>
 								<th>#</th>
-								<th>Id Funcionario</th>
+								<!-- <th>Id Funcionario</th> -->
 								<th>Nome do destino</th>
 								<th>Cidade</th>
 								<th>Estado</th>
@@ -82,14 +82,23 @@
 							<c:forEach items="${destinos}" var="destino">
 								<tr>
 									<td>${destino.idDestino}</td>
-									<td>${destino.idFuncionario}</td>
+									<!-- <td>${destino.idFuncionario}</td> -->
 									<td>${destino.nome}</td>
 									<td>${destino.cidade}</td>
 									<td>${destino.estado}</td>
-									<td>${destino.precoDoPacote}</td>
-									<td>${destino.promocao}</td>
-									<td>${destino.desconto}</td>
-									<td>${destino.urlFoto}</td>
+									<td>R$ ${destino.precoDoPacote}</td>
+									<td>
+										<c:choose>
+										 	<c:when test="${destino.promocao==true}">
+												<b>Sim</b>
+											</c:when>
+											<c:otherwise>
+												Não
+											</c:otherwise>
+										</c:choose>
+									</td>
+									<td>${destino.desconto*100}%</td>
+									<td><i>${destino.urlFoto}</i></td>
 									<td>
 										<a href="DestinoUpdate?destinoId=${destino.idDestino}"> <button type="submit" class="btn btn-config"> <i class="bi bi-pencil-square"></i> Alterar</button></a>
 										<a href="DestinoRemove?destinoId=${destino.idDestino}"> <button type="submit" class="btn btn-config-delete"> <i class="bi bi-trash3-fill"></i> Deletar</button></a>

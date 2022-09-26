@@ -49,7 +49,7 @@
                     </ul>
                 </nav>
                		 <form action="DestinoMakeAndSearch" method="GET" class="d-flex">
-						<input name="pesquisa" class="form-control me-2" type="search" placeholder="Digite o Nome" aria-label="Search">
+						<input name="pesquisa" class="form-control me-2" type="search" placeholder="Busque pelo Nome" aria-label="Search">
 						<button class="btn search-icon" type="submit"> <i class="bi bi-search"></i> </button>
 					</form>
     		</div>
@@ -97,7 +97,7 @@
 							</div>
 							<div class="py-2">
 									<label>Porcentagem do desconto (Sendo 1 = 100%)</label>
-									<input value="${destino.desconto}" name="desconto" maxlength="50" type="text" class="form-control" id="floatingInput6" placeholder="0.00"> 
+									<input value="${destino.desconto}" name="desconto" type="number" class="form-control" id="floatingInput6" placeholder="0.00" step="0.01" min="0" max="1"> 
 							</div>
 							<div class="py-2">
 									<label>Url da foto</label>

@@ -17,19 +17,19 @@ public class DestinoDAO implements CRUD {
 	private static String sql;
 		
 	public static void create(Destino destino) {
-		sql = "INSERT INTO tb_destino VALUES (null, ?, ?, ?, ?, ?, ?, ?, ?)";
+		sql = "INSERT INTO tb_destino (id_destino, nome, cidade, estado, preco_pacote, promocao, desconto, url_foto) VALUES (null, ?, ?, ?, ?, ?, ?, ?)";
 		
 		try {
 			PreparedStatement preparedStatement = connection.prepareStatement(sql);
 			
-			preparedStatement.setInt(1, destino.getIdFuncionario());
-			preparedStatement.setString(2, destino.getNome());
-			preparedStatement.setString(3, destino.getCidade());
-			preparedStatement.setString(4, destino.getEstado());
-			preparedStatement.setDouble(5, destino.getPrecoDoPacote());
-			preparedStatement.setBoolean(6, destino.isPromocao());
-			preparedStatement.setDouble(7, destino.getDesconto());
-			preparedStatement.setString(8, destino.getUrlFoto());
+			// preparedStatement.setInt(1, destino.getIdFuncionario());
+			preparedStatement.setString(1, destino.getNome());
+			preparedStatement.setString(2, destino.getCidade());
+			preparedStatement.setString(3, destino.getEstado());
+			preparedStatement.setDouble(4, destino.getPrecoDoPacote());
+			preparedStatement.setBoolean(5, destino.isPromocao());
+			preparedStatement.setDouble(6, destino.getDesconto());
+			preparedStatement.setString(7, destino.getUrlFoto());
 			
 			
 			preparedStatement.executeUpdate();
@@ -131,20 +131,20 @@ public class DestinoDAO implements CRUD {
 	}
 	
 	public static void update(Destino destino) {
-		sql = "UPDATE tb_destino SET id_funcionario=?, nome=?, cidade=?, estado=?, preco_pacote=?, promocao=?, desconto=?, url_foto=? WHERE id_destino=?";
+		sql = "UPDATE tb_destino SET nome=?, cidade=?, estado=?, preco_pacote=?, promocao=?, desconto=?, url_foto=? WHERE id_destino=?";
 		
 		try {
 			PreparedStatement preparedStatement = connection.prepareStatement(sql);
 			
-			preparedStatement.setInt(1, destino.getIdFuncionario());
-			preparedStatement.setString(2, destino.getNome());
-			preparedStatement.setString(3, destino.getCidade());
-			preparedStatement.setString(4, destino.getEstado());
-			preparedStatement.setDouble(5, destino.getPrecoDoPacote());
-			preparedStatement.setBoolean(6, destino.isPromocao());
-			preparedStatement.setDouble(7, destino.getDesconto());
-			preparedStatement.setString(8, destino.getUrlFoto());
-			preparedStatement.setInt(9, destino.getIdDestino());
+			// preparedStatement.setInt(1, destino.getIdFuncionario());
+			preparedStatement.setString(1, destino.getNome());
+			preparedStatement.setString(2, destino.getCidade());
+			preparedStatement.setString(3, destino.getEstado());
+			preparedStatement.setDouble(4, destino.getPrecoDoPacote());
+			preparedStatement.setBoolean(5, destino.isPromocao());
+			preparedStatement.setDouble(6, destino.getDesconto());
+			preparedStatement.setString(7, destino.getUrlFoto());
+			preparedStatement.setInt(8, destino.getIdDestino());
 			
 			preparedStatement.executeUpdate();
 			

@@ -5,7 +5,7 @@
 <meta charset="ISO-8859-1">
 <title>Wallz Tour - Alterar Cliente</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"         integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="../assets/style/main.css" />
+    <link rel="stylesheet" type="text/css" href="./assets/style/main.css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
 </head>
 <body>
@@ -48,7 +48,7 @@
                     </ul>
                 </nav>
                		 <form action="ClienteMakeAndSearch" method="GET" class="d-flex">
-						<input name="pesquisa" class="form-control me-2" type="search" placeholder="Digite o Nome" aria-label="Search">
+						<input name="pesquisa" class="form-control me-2" type="search" placeholder="Busque pelo Nome" aria-label="Search">
 						<button class="btn search-icon" type="submit"> <i class="bi bi-search"></i> </button>
 					</form>
     		</div>
@@ -68,19 +68,19 @@
 							</div>
 							<div class="py-2">
 									<label>E-mail</label>
-									<input value="${cliente.email}" name="email" maxlength="150" type="text" class="form-control" id="floatingInput1"> 
+									<input value="${cliente.email}" name="email" maxlength="150" type="text" class="form-control" id="floatingInput2"> 
 							</div>
 							<div class="py-2">
 									<label>Senha</label>
-									<input value="${cliente.senha}" name="senha" maxlength="50" type="password" class="form-control" id="floatingInput1"> 
+									<input value="${cliente.senha}" name="senha" maxlength="50" type="password" class="form-control" id="floatingInput3"> 
 							</div>
 							<div class="py-2">
 									<label>CPF (apenas números)</label>
-									<input value="${cliente.cpf}" name="cpf" maxlength="11" type="text" class="form-control"> 
+									<input value="${cliente.cpf}" name="cpf" maxlength="11" type="text" class="form-control" id="floatingInput4"> 
 							</div>
 							<div class="py-2">
 									<label>Data de Nascimento</label>
-									<input value="${cliente.dataDeNascimento}" name="dataDeNascimento" type="date" class="form-control" placeholder="dataDeNascimento">
+									<input value="${cliente.dataDeNascimento}" name="dataDeNascimento" type="date" class="form-control" placeholder="dataDeNascimento" id="floatingInput5">
 							</div>								
 							<div class="d-flex flex-row align-items-center justify-content-center py-2">
 								<button class="btn btn-config" type="submit"> <i class="bi bi-check-lg"></i> Atualizar Cadastro</button>

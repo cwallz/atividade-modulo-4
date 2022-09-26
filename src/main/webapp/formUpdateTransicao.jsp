@@ -49,7 +49,7 @@
                     </ul>
                 </nav>
                		 <form action="TransicaoMakeAndSearch" method="GET" class="d-flex">
-						<input name="pesquisa" class="form-control me-2" type="search" placeholder="Digite o Nome" aria-label="Search">
+						<input name="pesquisa" class="form-control me-2" type="search" placeholder="Busque o ID da transição" aria-label="Search">
 						<button class="btn search-icon" type="submit"> <i class="bi bi-search"></i> </button>
 					</form>
     		</div>
@@ -67,7 +67,7 @@
 							<input value="${transicao.idDestino}" name="idDestino" type="number" style="visibility:hidden">
 							<div class="py-2">
 									<label>Quantidade de Diárias</label>
-									<input value="${transicao.quantidadeDiarias}" name="quantidadeDiarias" maxlength="3" type="number" class="form-control" id="floatingInput1"> 
+									<input value="${transicao.quantidadeDiarias}" name="quantidadeDiarias"min="0" max="99" type="number" class="form-control" id="floatingInput1"> 
 							</div>
 							<div class="py-2">
 									<label>Data da viagem</label>

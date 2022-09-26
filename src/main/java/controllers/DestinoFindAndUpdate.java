@@ -35,7 +35,7 @@ public class DestinoFindAndUpdate extends HttpServlet {
 
 		Destino destino = new Destino();
 		destino.setIdDestino(Integer.parseInt(request.getParameter("idDestino")));
-		destino.setIdFuncionario(Integer.parseInt(request.getParameter("idFuncionario")));
+		//destino.setIdFuncionario(Integer.parseInt(request.getParameter("idFuncionario")));
 		destino.setNome(request.getParameter("nome"));
 		destino.setCidade(request.getParameter("cidade"));
 		destino.setEstado(request.getParameter("estado"));

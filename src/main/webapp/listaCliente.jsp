@@ -69,7 +69,7 @@
 								<th>#</th>
 								<th>Nome</th>
 								<th>Email</th>
-								<th>Senha</th>
+								<!-- A senha do usuário não pode aparecer  <th>Senha</th> -->
 								<th>CPF</th>
 								<th>Data de Nascimento</th>
 								<th>Ações</th>
@@ -81,7 +81,7 @@
 									<td>${cliente.idCliente}</td>
 									<td>${cliente.nome}</td>
 									<td>${cliente.email}</td>
-									<td>${cliente.senha}</td>
+									<!-- A senha do usuário não pode aparecer  <td>${cliente.senha}</td> -->
 									<td>${cliente.cpf}</td>
 									<td>${cliente.dataDeNascimento}</td>
 									<td>

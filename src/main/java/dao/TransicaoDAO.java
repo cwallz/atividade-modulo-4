@@ -17,17 +17,17 @@ public class TransicaoDAO implements CRUD {
 	private static String sql;
 		
 	public static void create(Transicao transicao) {
-		sql = "INSERT INTO tb_transicao VALUES (null, ?, ?, ?, ?, ?, ?)";
+		sql = "INSERT INTO tb_transicao (id_transicao, quantidade_diarias, data_viagem, optante_seguro, taxa_seguro) VALUES (null, ?, ?, ?, ?)";
 		
 		try {
 			PreparedStatement preparedStatement = connection.prepareStatement(sql);
 			
-			preparedStatement.setInt(1, transicao.getIdCliente());
-			preparedStatement.setInt(2, transicao.getIdDestino());
-			preparedStatement.setInt(3, transicao.getQuantidadeDiarias());
-			preparedStatement.setString(4, transicao.getDataViagem());
-			preparedStatement.setBoolean(5, transicao.isOptanteSeguro());
-			preparedStatement.setDouble(6, transicao.getTaxaSeguro());
+			//preparedStatement.setInt(1, transicao.getIdCliente());
+			//preparedStatement.setInt(2, transicao.getIdDestino());
+			preparedStatement.setInt(1, transicao.getQuantidadeDiarias());
+			preparedStatement.setString(2, transicao.getDataViagem());
+			preparedStatement.setBoolean(3, transicao.isOptanteSeguro());
+			preparedStatement.setDouble(4, transicao.getTaxaSeguro());
 
 			
 			preparedStatement.executeUpdate();
@@ -127,18 +127,18 @@ public class TransicaoDAO implements CRUD {
 	}
 	
 	public static void update(Transicao transicao) {
-		sql = "UPDATE tb_transicao SET id_cliente=?, id_destino=?, quantidade_diarias=?, data_viagem=?, optante_seguro=?, taxa_seguro=? WHERE id_transicao=?";
+		sql = "UPDATE tb_transicao SET quantidade_diarias=?, data_viagem=?, optante_seguro=?, taxa_seguro=? WHERE id_transicao=?";
 		
 		try {
 			PreparedStatement preparedStatement = connection.prepareStatement(sql);
 			
-			preparedStatement.setInt(1, transicao.getIdCliente());
-			preparedStatement.setInt(2, transicao.getIdDestino());
-			preparedStatement.setInt(3, transicao.getQuantidadeDiarias());
-			preparedStatement.setString(4, transicao.getDataViagem());
-			preparedStatement.setBoolean(5, transicao.isOptanteSeguro());
-			preparedStatement.setDouble(6, transicao.getTaxaSeguro());
-			preparedStatement.setInt(7, transicao.getIdTransicao());
+			//preparedStatement.setInt(1, transicao.getIdCliente());
+			//preparedStatement.setInt(2, transicao.getIdDestino());
+			preparedStatement.setInt(1, transicao.getQuantidadeDiarias());
+			preparedStatement.setString(2, transicao.getDataViagem());
+			preparedStatement.setBoolean(3, transicao.isOptanteSeguro());
+			preparedStatement.setDouble(4, transicao.getTaxaSeguro());
+			preparedStatement.setInt(5, transicao.getIdTransicao());
 			
 			preparedStatement.executeUpdate();
 			

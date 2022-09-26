@@ -49,7 +49,7 @@
                     </ul>
                 </nav>
                		 <form action="TransicaoMakeAndSearch" method="GET" class="d-flex">
-						<input name="pesquisa" class="form-control me-2" type="search" placeholder="Digite o Nome" aria-label="Search">
+						<input name="pesquisa" class="form-control me-2" type="search" placeholder="Busque o ID da transição" aria-label="Search">
 						<button class="btn search-icon" type="submit"> <i class="bi bi-search"></i> </button>
 					</form>
     		</div>
@@ -59,18 +59,18 @@
 				<div class="row d-flex align-items-center justify-content-center">
 					<div class="col-md-7">
 						<hr>
-						<h3 class="titulo-aba d-flex justify-content-center">Cadastro de Novo Transicão</h3>
+						<h3 class="titulo-aba d-flex justify-content-center">Cadastro de Novo Transição</h3>
 						<hr>
 						<form action="TransicaoMakeAndSearch" method="POST">
-							<input value="3" type="number" name="idCliente" style="visibility:hidden">
-							<input value="7" type="number" name="idDestino" style="visibility:hidden">
+							<input value="" type="number" name="idCliente" style="visibility:hidden">
+							<input value="" type="number" name="idDestino" style="visibility:hidden">
 							<div class="py-2">
 									<label>Quantidade de Diárias</label>
-									<input name="quantidadeDiarias" maxlength="3" type="number" class="form-control" id="floatingInput1"> 
+									<input name="quantidadeDiarias" min="0" max="99" type="number" class="form-control" id="floatingInput1"> 
 							</div>
 							<div class="py-2">
 									<label>Data da viagem</label>
-										<input name="dataViagem" type="date" class="form-control" placeholder="dataViagem" id="floatingInput2">
+									<input name="dataViagem" type="date" class="form-control" placeholder="dataViagem">
 							</div>
 							<div class="py-2">
 								<fieldset>
@@ -82,7 +82,7 @@
 							</div>
 							<div class="py-2">
 									<label>Taxa do seguro para essa transicão. <i>(Sendo 1 = 100%)</i></label>
-									<input name="taxaSeguro" type="number" class="form-control" id="floatingInput4" placeholder="0.00" step="0.01" min="0" max="1"> 
+									<input value="0.00" name="taxaSeguro" type="number" class="form-control" id="floatingInput4" placeholder="0.00" step="0.01" min="0" max="1"> 
 							</div>
 							<div class="d-flex flex-row align-items-center justify-content-center py-2">
 								<button class="btn btn-config" type="submit"> <i class="bi bi-check-lg"></i> Confirmar Cadastro</button>

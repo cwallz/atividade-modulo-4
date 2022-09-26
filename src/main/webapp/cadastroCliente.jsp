@@ -49,7 +49,7 @@
                     </ul>
                 </nav>
                		 <form action="ClienteMakeAndSearch" method="GET" class="d-flex">
-						<input name="pesquisa" class="form-control me-2" type="search" placeholder="Digite o Nome" aria-label="Search">
+						<input name="pesquisa" class="form-control me-2" type="search" placeholder="Busque pelo Nome" aria-label="Search">
 						<button class="btn search-icon" type="submit"> <i class="bi bi-search"></i> </button>
 					</form>
     		</div>
@@ -69,11 +69,11 @@
 							</div>
 							<div class="py-2">
 									<label>E-mail</label>
-									<input name="email" maxlength="150" type="text" class="form-control" id="floatingInput1"> 
+									<input name="email" maxlength="150" type="text" class="form-control" id="floatingInput2"> 
 							</div>
 							<div class="py-2">
 									<label>Senha</label>
-									<input name="senha" maxlength="50" type="password" class="form-control" id="floatingInput1"> 
+									<input name="senha" maxlength="50" type="password" class="form-control" id="floatingInput3"> 
 							</div>
 							<div class="py-2">
 									<label>CPF (apenas números)</label>

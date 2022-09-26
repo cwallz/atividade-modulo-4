@@ -67,8 +67,8 @@
 						<thead>
 							<tr>
 								<th>#</th>
-								<th>Id Cliente</th>
-								<th>Id Destino</th>
+								<!-- <th>Id Cliente</th>-->
+								<!-- <th>Id Destino</th>-->
 								<th>Quantidade de Diárias</th>
 								<th>Data da viagem</th>
 								<th>Optante Seguro</th>
@@ -80,12 +80,21 @@
 							<c:forEach items="${transicoes}" var="transicao">
 								<tr>
 									<td>${transicao.idTransicao}</td>
-									<td>${transicao.idCliente}</td>
-									<td>${transicao.idDestino}</td>
+									<!-- <td>${transicao.idCliente}</td>-->
+									<!-- <td>${transicao.idDestino}</td>-->
 									<td>${transicao.quantidadeDiarias}</td>
 									<td>${transicao.dataViagem}</td>
-									<td>${transicao.optanteSeguro}</td>
-									<td>${transicao.taxaSeguro}</td>
+									<td>
+										<c:choose>
+											<c:when test="${transicao.optanteSeguro==true}">
+												<b>Sim</b>
+											</c:when>
+											<c:otherwise>
+												Não
+											</c:otherwise>
+										</c:choose>
+									</td>
+									<td>${transicao.taxaSeguro*100}%</td>
 									<td>
 										<a href="TransicaoUpdate?transicaoId=${transicao.idTransicao}"> <button type="submit" class="btn btn-config"> <i class="bi bi-pencil-square"></i> Alterar</button></a>
 										<a href="TransicaoRemove?transicaoId=${transicao.idTransicao}"> <button type="submit" class="btn btn-config-delete"> <i class="bi bi-trash3-fill"></i> Deletar</button></a>

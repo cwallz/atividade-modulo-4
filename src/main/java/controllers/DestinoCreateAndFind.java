@@ -47,7 +47,7 @@ public class DestinoCreateAndFind extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		Destino destino = new Destino();
 
-		destino.setIdFuncionario(Integer.parseInt(request.getParameter("idFuncionario")));
+		// destino.setIdFuncionario(Integer.parseInt(request.getParameter("idFuncionario")));
 		destino.setNome(request.getParameter("nome"));
 		destino.setCidade(request.getParameter("cidade"));
 		destino.setEstado(request.getParameter("estado"));

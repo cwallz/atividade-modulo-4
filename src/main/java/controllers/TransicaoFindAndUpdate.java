@@ -35,8 +35,8 @@ public class TransicaoFindAndUpdate extends HttpServlet {
 
 		Transicao transicao = new Transicao();
 		transicao.setIdTransicao(Integer.parseInt(request.getParameter("idTransicao")));
-		transicao.setIdCliente(Integer.parseInt(request.getParameter("idCliente")));
-		transicao.setIdDestino(Integer.parseInt(request.getParameter("idDestino")));
+		//transicao.setIdCliente(Integer.parseInt(request.getParameter("idCliente")));
+		//transicao.setIdDestino(Integer.parseInt(request.getParameter("idDestino")));
 		transicao.setQuantidadeDiarias(Integer.parseInt(request.getParameter("quantidadeDiarias")));
 		transicao.setDataViagem(request.getParameter("dataViagem"));
 		transicao.setOptanteSeguro(Boolean.parseBoolean(request.getParameter("optanteSeguro")));

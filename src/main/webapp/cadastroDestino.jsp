@@ -50,7 +50,7 @@
                     </ul>
                 </nav>
                		 <form action="DestinoMakeAndSearch" method="GET" class="d-flex">
-						<input name="pesquisa" class="form-control me-2" type="search" placeholder="Digite o Nome" aria-label="Search">
+						<input name="pesquisa" class="form-control me-2" type="search" placeholder="Busque pelo Nome" aria-label="Search">
 						<button class="btn search-icon" type="submit"> <i class="bi bi-search"></i> </button>
 					</form>
     		</div>
@@ -63,10 +63,7 @@
 						<h3 class="titulo-aba d-flex justify-content-center">Cadastro de Novo Destino</h3>
 						<hr>
 						<form action="DestinoMakeAndSearch" method="POST">
-							<input value="3" type="number" name="idFuncionario" style="visibility:hidden">
-							<select  name="idFuncionario" class="form-control" id="floatingInput1">
-								<option value="" selected>-> Selecione o seu Id Funcionario</option>
-							</select>
+							<input value="" type="number" name="idFuncionario" style="visibility:hidden">
 							<div class="py-2">
 									<label>Nome do destino</label>
 									<input name="nome" maxlength="300" type="text" class="form-control" id="floatingInput1"> 
@@ -81,7 +78,7 @@
 							</div>
 							<div class="py-2">
 									<label>Preço do pacote</label>
-									<input name="precoDoPacote" type="number" class="form-control" id="floatingInput4" placeholder="0.00" step="0.01" min="0" max="99999999"> 
+									<input value="0.00" name="precoDoPacote" type="number" class="form-control" id="floatingInput4" placeholder="0.00" step="0.01" min="0" max="99999999"> 
 							</div>
 							<div class="py-2">
 								<fieldset>
@@ -93,7 +90,7 @@
 							</div>
 							<div class="py-2">
 									<label>Porcentagem do desconto (Sendo 1 = 100%)</label>
-									<input name="desconto" type="number" class="form-control" id="floatingInput6" placeholder="0.00" step="0.01" min="0" max="1">
+									<input value="0.00" name="desconto" type="number" class="form-control" id="floatingInput6" placeholder="0.00" step="0.01" min="0" max="1">
 							</div>
 							<div class="py-2">
 									<label>Url da foto</label>
