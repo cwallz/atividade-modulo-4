@@ -60,7 +60,7 @@ public class ClienteDAO implements CRUD {
 	
 	public static List<Cliente> find(String pesquisa) {
 		
-		sql = String.format("SELECT * FROM tb_cliente WHERE nome like '%s%%' OR cpf LIKE '%s%%' ", pesquisa, pesquisa);
+		sql = String.format("SELECT * FROM tb_cliente WHERE nome like '%%%s%%'", pesquisa, pesquisa);
 		List<Cliente> clientes = new ArrayList<Cliente>();
 		
 		try {

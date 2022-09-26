@@ -1,0 +1,54 @@
+create table tb_cliente
+(
+id_cliente int primary key auto_increment not null,
+nome varchar(300),
+email varchar(150),
+senha varchar(50),
+cpf varchar(11),
+data_nascimento date
+)
+
+
+create table tb_funcionario
+(
+id_funcionario int primary key auto_increment not null,
+nome varchar(300),
+email varchar(150),
+senha varchar(50),
+registro_matricula int,
+perfil varchar(50)
+)
+
+
+create table tb_destino
+(
+id_destino int primary key auto_increment not null,
+id_funcionario int,
+nome varchar(300),
+cidade varchar(150),
+estado varchar(150),
+preco_pacote decimal(18,2),
+promocao bit,
+desconto decimal(3,2),
+url_foto varchar(1000),
+
+constraint FK_id_funcionario foreign key (id_funcionario)
+references tb_funcionario(id_funcionario)
+)
+
+
+create table tb_transicao
+(
+id_transicao int primary key auto_increment not null,
+id_cliente int,
+id_destino int,
+quantidade_diarias int,
+data_viagem date,
+optante_seguro bit,
+taxa_seguro decimal(3,2),
+
+constraint FK_id_cliente foreign key (id_cliente)
+references tb_cliente(id_cliente),
+constraint FK_id_destino foreign key (id_destino)
+references tb_destino(id_destino)
+)

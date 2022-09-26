@@ -5,7 +5,7 @@
 
 <head>
 <meta charset="ISO-8859-1">
-<title>Wallz Tour - Lista de Clientes</title>
+<title>Wallz Tour - Lista de Transições</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"         integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="./assets/style/main.css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
@@ -20,7 +20,7 @@
                 <nav>
                     <ul class="nav">
                         <li class="nav-item">
-                            <a class="nav-link active cor-link aba-selecionada" href="ClienteMakeAndSearch">Clientes</a>
+                            <a class="nav-link active cor-link" href="ClienteMakeAndSearch">Clientes</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link active cor-link" href="FuncionarioMakeAndSearch">Funcionários</a>
@@ -29,7 +29,7 @@
                             <a class="nav-link active cor-link" href="DestinoMakeAndSearch">Destinos</a>
                         </li>
                        	<li class="nav-item">
-                            <a class="nav-link active cor-link" href="TransicaoMakeAndSearch">Transições</a>
+                            <a class="nav-link active cor-link aba-selecionada" href="TransicaoMakeAndSearch">Transições</a>
                         </li>
                     </ul>
                 </nav>
@@ -42,15 +42,15 @@
     		    <nav>
                     <ul class="nav px-5">
                         <li class="nav-item">
-                            <a class="nav-link active cor-link2" href="./cadastroCliente.jsp">Novo Cadastro</a>
+                            <a class="nav-link active cor-link2" href="./cadastroTransicao.jsp">Novo Cadastro</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link active cor-link2" href="ClienteMakeAndSearch">Lista de Clientes</a>
+                            <a class="nav-link active cor-link2" href="TransicaoMakeAndSearch">Lista de Transicões</a>
                         </li>
                     </ul>
                 </nav>
-               		 <form action="ClienteMakeAndSearch" method="GET" class="d-flex">
-						<input name="pesquisa" class="form-control me-2" type="search" placeholder="Busque pelo Nome" aria-label="Search">
+               		 <form action="TransicaoMakeAndSearch" method="GET" class="d-flex">
+						<input name="pesquisa" class="form-control me-2" type="search" placeholder="Busque o ID da transição" aria-label="Search">
 						<button class="btn search-icon" type="submit"> <i class="bi bi-search"></i> </button>
 					</form>
     		</div>
@@ -60,33 +60,35 @@
 				<div class="row d-flex align-items-center justify-content-center">
 					<div class="cold-md-7">
 						<hr>
-						<h3 class="titulo-aba d-flex justify-content-center">Clientes Cadastrados</h3>
+						<h3 class="titulo-aba d-flex justify-content-center">Transições Cadastradas</h3>
 						<hr>
 					</div>
 					<table class="table tabela-padrao">
 						<thead>
 							<tr>
 								<th>#</th>
-								<th>Nome</th>
-								<th>Email</th>
-								<th>Senha</th>
-								<th>CPF</th>
-								<th>Data de Nascimento</th>
+								<th>Id Cliente</th>
+								<th>Id Destino</th>
+								<th>Quantidade de Diárias</th>
+								<th>Data da viagem</th>
+								<th>Optante Seguro</th>
+								<th>Taxa de Seguro</th>
 								<th>Ações</th>
 							</tr>
 						</thead>
 						<tbody>
-							<c:forEach items="${clientes}" var="cliente">
+							<c:forEach items="${transicoes}" var="transicao">
 								<tr>
-									<td>${cliente.idCliente}</td>
-									<td>${cliente.nome}</td>
-									<td>${cliente.email}</td>
-									<td>${cliente.senha}</td>
-									<td>${cliente.cpf}</td>
-									<td>${cliente.dataDeNascimento}</td>
+									<td>${transicao.idTransicao}</td>
+									<td>${transicao.idCliente}</td>
+									<td>${transicao.idDestino}</td>
+									<td>${transicao.quantidadeDiarias}</td>
+									<td>${transicao.dataViagem}</td>
+									<td>${transicao.optanteSeguro}</td>
+									<td>${transicao.taxaSeguro}</td>
 									<td>
-										<a href="ClienteUpdate?clienteId=${cliente.idCliente}"> <button type="submit" class="btn btn-config"> <i class="bi bi-pencil-square"></i> Alterar</button></a>
-										<a href="ClienteRemove?clienteId=${cliente.idCliente}"> <button type="submit" class="btn btn-config-delete"> <i class="bi bi-trash3-fill"></i> Deletar</button></a>
+										<a href="TransicaoUpdate?transicaoId=${transicao.idTransicao}"> <button type="submit" class="btn btn-config"> <i class="bi bi-pencil-square"></i> Alterar</button></a>
+										<a href="TransicaoRemove?transicaoId=${transicao.idTransicao}"> <button type="submit" class="btn btn-config-delete"> <i class="bi bi-trash3-fill"></i> Deletar</button></a>
 									</td>
 								</tr>
 							</c:forEach>

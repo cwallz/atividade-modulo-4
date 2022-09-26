@@ -1,11 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"    pageEncoding="ISO-8859-1"%>
+<%@ taglib uri='http://java.sun.com/jsp/jstl/core' prefix='c'%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Wallz Tour - Alterar Cliente</title>
+<title>Wallz Tour - Alterar Destino</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"         integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="../assets/style/main.css" />
+    <link rel="stylesheet" type="text/css" href="./assets/style/main.css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
 </head>
 <body>
@@ -18,13 +19,13 @@
                 <nav>
                     <ul class="nav">
                         <li class="nav-item">
-                            <a class="nav-link active cor-link aba-selecionada" href="ClienteMakeAndSearch">Clientes</a>
+                            <a class="nav-link active cor-link" href="ClienteMakeAndSearch">Clientes</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link active cor-link " href="FuncionarioMakeAndSearch">Funcionários</a>
+                            <a class="nav-link active cor-link" href="FuncionarioMakeAndSearch">Funcionários</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link active cor-link" href="DestinoMakeAndSearch">Destinos</a>
+                            <a class="nav-link active cor-link aba-selecionada" href="DestinoMakeAndSearch">Destinos</a>
                         </li>
                        	<li class="nav-item">
                             <a class="nav-link active cor-link" href="TransicaoMakeAndSearch">Transições</a>
@@ -40,14 +41,14 @@
     		    <nav>
                     <ul class="nav px-5">
                         <li class="nav-item">
-                            <a class="nav-link active cor-link2" href="./cadastroCliente.jsp">Novo Cadastro</a>
+                            <a class="nav-link active cor-link2" href="./cadastroDestino.jsp">Novo Cadastro</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link active cor-link2" href="ClienteMakeAndSearch">Lista de Clientes</a>
+                            <a class="nav-link active cor-link2" href="DestinoMakeAndSearch">Lista de Destinos</a>
                         </li>
                     </ul>
                 </nav>
-               		 <form action="ClienteMakeAndSearch" method="GET" class="d-flex">
+               		 <form action="DestinoMakeAndSearch" method="GET" class="d-flex">
 						<input name="pesquisa" class="form-control me-2" type="search" placeholder="Digite o Nome" aria-label="Search">
 						<button class="btn search-icon" type="submit"> <i class="bi bi-search"></i> </button>
 					</form>
@@ -58,29 +59,49 @@
 				<div class="row d-flex align-items-center justify-content-center">
 					<div class="col-md-7">
 						<hr>
-						<h3 class="titulo-aba d-flex justify-content-center">Alterar dados do Cliente</h3>
+						<h3 class="titulo-aba d-flex justify-content-center">Alterar dados do Destino</h3>
 						<hr>
-						<form action="ClienteUpdate" method="POST">
-							<input value="${cliente.idCliente}" name="idCliente" style="visibility:hidden">
+						<form action="DestinoUpdate" method="POST">
+							<input value="${destino.idDestino}" name="idDestino" style="visibility:hidden">
+							<input value="${destino.idFuncionario}" name="idFuncionario" style="visibility:hidden">
 							<div class="py-2">
-									<label>Nome completo</label>
-									<input value="${cliente.nome}" name="nome" maxlength="300" type="text" class="form-control" id="floatingInput1"> 
+									<label>Nome do destino</label>
+									<input value="${destino.nome}" name="nome" maxlength="300" type="text" class="form-control" id="floatingInput1"> 
 							</div>
 							<div class="py-2">
-									<label>E-mail</label>
-									<input value="${cliente.email}" name="email" maxlength="150" type="text" class="form-control" id="floatingInput1"> 
+									<label>Cidade</label>
+									<input value="${destino.cidade}" name="cidade" maxlength="150" type="text" class="form-control" id="floatingInput2"> 
 							</div>
 							<div class="py-2">
-									<label>Senha</label>
-									<input value="${cliente.senha}" name="senha" maxlength="50" type="password" class="form-control" id="floatingInput1"> 
+									<label>Estado</label>
+									<input value="${destino.estado}" name="estado" maxlength="150" type="text" class="form-control" id="floatingInput3"> 
 							</div>
 							<div class="py-2">
-									<label>CPF (apenas números)</label>
-									<input value="${cliente.cpf}" name="cpf" maxlength="11" type="text" class="form-control"> 
+									<label>Preço do pacote</label>
+									<input value="${destino.precoDoPacote}" name="precoDoPacote" type="number" class="form-control" id="floatingInput4" placeholder="0.00" step="0.01" min="0" max="99999999"> 
 							</div>
 							<div class="py-2">
-									<label>Data de Nascimento</label>
-									<input value="${cliente.dataDeNascimento}" name="dataDeNascimento" type="date" class="form-control" placeholder="dataDeNascimento">
+								<fieldset>
+									<div>
+										<c:choose>
+										    <c:when test="${destino.promocao==true}">
+								      			<input type="checkbox" value="true" name="promocao" id="floatingInput5" checked>
+							        	    </c:when>
+										    <c:otherwise>
+												<input type="checkbox" value="true" name="promocao" id="floatingInput5">        
+										    </c:otherwise>
+										</c:choose>
+								      	<label for="floatingInput5">Esse destino é uma <b>promoção</b>.</label>
+								    </div>
+								</fieldset>
+							</div>
+							<div class="py-2">
+									<label>Porcentagem do desconto (Sendo 1 = 100%)</label>
+									<input value="${destino.desconto}" name="desconto" maxlength="50" type="text" class="form-control" id="floatingInput6" placeholder="0.00"> 
+							</div>
+							<div class="py-2">
+									<label>Url da foto</label>
+									<input value="${destino.urlFoto}" name="urlFoto" maxlength="1000" type="text" class="form-control" id="floatingInput7" placeholder="https://..."> 
 							</div>								
 							<div class="d-flex flex-row align-items-center justify-content-center py-2">
 								<button class="btn btn-config" type="submit"> <i class="bi bi-check-lg"></i> Atualizar Cadastro</button>
@@ -93,7 +114,7 @@
 			</div>
     	</section>
     </main>
-    <footer class="cor-de-fundo-footer">
+    	    <footer class="cor-de-fundo-footer">
         <p class="container d-flex flex-row align-items-center">
             Copyright © 2022 Recode. Todos os direitos reservados.
         </p>

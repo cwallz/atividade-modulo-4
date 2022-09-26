@@ -11,7 +11,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import dao.DestinoDAO;
+import dao.FuncionarioDAO;
 import model.Destino;
+import model.Funcionario;
 
 
 @WebServlet("/DestinoMakeAndSearch")
@@ -31,8 +33,12 @@ public class DestinoCreateAndFind extends HttpServlet {
 		}
 		
 		List<Destino> destinos = DestinoDAO.find(pesquisa);
+		List<Funcionario> funcionarios = FuncionarioDAO.find("");
 		
 		request.setAttribute("destinos", destinos);
+		request.setAttribute("funcionarios", funcionarios);
+
+		
 		RequestDispatcher requestDispatcher = request.getRequestDispatcher("listaDestino.jsp");
 		requestDispatcher.forward(request, response);
 				

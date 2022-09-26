@@ -11,7 +11,7 @@ import java.util.List;
 import db.MySqlConnection;
 import model.Funcionario;
 
-public class FuncionarioDAO implements CRUD {
+public class FuncionarioDAO {
 
 	private static Connection connection = MySqlConnection.createConnection();
 	private static String sql;
@@ -25,7 +25,7 @@ public class FuncionarioDAO implements CRUD {
 			preparedStatement.setString(1, funcionario.getNome());
 			preparedStatement.setString(2, funcionario.getEmail());
 			preparedStatement.setString(3, funcionario.getSenha());
-			preparedStatement.setString(4, funcionario.getRegistroMatricula());
+			preparedStatement.setInt(4, Integer.parseInt(funcionario.getRegistroMatricula()));
 			preparedStatement.setString(5, funcionario.getPerfil());
 			
 			preparedStatement.executeUpdate();
@@ -60,7 +60,7 @@ public class FuncionarioDAO implements CRUD {
 	
 	public static List<Funcionario> find(String pesquisa) {
 		
-		sql = String.format("SELECT * FROM tb_funcionario WHERE nome like '%s%%' OR registro_matricula LIKE '%s%%' ", pesquisa, pesquisa);
+		sql = String.format("SELECT * FROM tb_funcionario WHERE nome like '%%%s%%' ", pesquisa);
 		List<Funcionario> funcionarios = new ArrayList<Funcionario>();
 		
 		try {
@@ -78,7 +78,6 @@ public class FuncionarioDAO implements CRUD {
 				funcionario.setPerfil(resultSet.getString("perfil"));
 				
 				funcionarios.add(funcionario);
-			
 			}
 			
 			System.out.println("--correct find funcionarios");
@@ -130,7 +129,14 @@ public class FuncionarioDAO implements CRUD {
 			preparedStatement.setString(1, funcionario.getNome());
 			preparedStatement.setString(2, funcionario.getEmail());
 			preparedStatement.setString(3, funcionario.getSenha());
-			preparedStatement.setString(4, funcionario.getRegistroMatricula());
+
+			String matricula = funcionario.getRegistroMatricula();
+			if (matricula == "") {
+				preparedStatement.setString(4, null);
+			} else {
+				preparedStatement.setInt(4, Integer.parseInt(matricula));
+			}
+			
 			preparedStatement.setString(5, funcionario.getPerfil());
 			preparedStatement.setInt(6, funcionario.getIdFuncionario());
 			

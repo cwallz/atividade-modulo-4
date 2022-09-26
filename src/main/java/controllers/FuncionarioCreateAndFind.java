@@ -31,7 +31,7 @@ public class FuncionarioCreateAndFind extends HttpServlet {
 		}
 		
 		List<Funcionario> funcionarios = FuncionarioDAO.find(pesquisa);
-		
+				
 		request.setAttribute("funcionarios", funcionarios);
 		RequestDispatcher requestDispatcher = request.getRequestDispatcher("listaFuncionario.jsp");
 		requestDispatcher.forward(request, response);

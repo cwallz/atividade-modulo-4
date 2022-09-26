@@ -34,12 +34,14 @@ public class FuncionarioFindAndUpdate extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 		Funcionario funcionario = new Funcionario();
+
 		funcionario.setIdFuncionario(Integer.parseInt(request.getParameter("idFuncionario")));
 		funcionario.setNome(request.getParameter("nome"));
 		funcionario.setEmail(request.getParameter("email"));
 		funcionario.setSenha(request.getParameter("senha"));
 		funcionario.setRegistroMatricula(request.getParameter("registroMatricula"));
 		funcionario.setPerfil(request.getParameter("perfil"));
+		
 		
 		FuncionarioDAO.update(funcionario);
 		

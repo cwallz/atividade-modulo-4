@@ -5,7 +5,7 @@
 
 <head>
 <meta charset="ISO-8859-1">
-<title>Wallz Tour - Lista de Clientes</title>
+<title>Wallz Tour - Lista de Destinos</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"         integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="./assets/style/main.css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
@@ -20,13 +20,13 @@
                 <nav>
                     <ul class="nav">
                         <li class="nav-item">
-                            <a class="nav-link active cor-link aba-selecionada" href="ClienteMakeAndSearch">Clientes</a>
+                            <a class="nav-link active cor-link" href="ClienteMakeAndSearch">Clientes</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link active cor-link" href="FuncionarioMakeAndSearch">Funcionários</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link active cor-link" href="DestinoMakeAndSearch">Destinos</a>
+                            <a class="nav-link active cor-link aba-selecionada" href="DestinoMakeAndSearch">Destinos</a>
                         </li>
                        	<li class="nav-item">
                             <a class="nav-link active cor-link" href="TransicaoMakeAndSearch">Transições</a>
@@ -36,20 +36,20 @@
             </div>
         </div>        
     </header>
-    <main>
+   <main>
     	<section>
     		<div class="container d-flex align-items-center justify-content-center py-3">
     		    <nav>
                     <ul class="nav px-5">
                         <li class="nav-item">
-                            <a class="nav-link active cor-link2" href="./cadastroCliente.jsp">Novo Cadastro</a>
+                            <a class="nav-link active cor-link2" href="./cadastroDestino.jsp">Novo Cadastro</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link active cor-link2" href="ClienteMakeAndSearch">Lista de Clientes</a>
+                            <a class="nav-link active cor-link2" href="DestinoMakeAndSearch">Lista de Destinos</a>
                         </li>
                     </ul>
                 </nav>
-               		 <form action="ClienteMakeAndSearch" method="GET" class="d-flex">
+               		 <form action="DestinoMakeAndSearch" method="GET" class="d-flex">
 						<input name="pesquisa" class="form-control me-2" type="search" placeholder="Busque pelo Nome" aria-label="Search">
 						<button class="btn search-icon" type="submit"> <i class="bi bi-search"></i> </button>
 					</form>
@@ -60,33 +60,39 @@
 				<div class="row d-flex align-items-center justify-content-center">
 					<div class="cold-md-7">
 						<hr>
-						<h3 class="titulo-aba d-flex justify-content-center">Clientes Cadastrados</h3>
+						<h3 class="titulo-aba d-flex justify-content-center">Destinos Cadastrados</h3>
 						<hr>
 					</div>
 					<table class="table tabela-padrao">
 						<thead>
 							<tr>
 								<th>#</th>
-								<th>Nome</th>
-								<th>Email</th>
-								<th>Senha</th>
-								<th>CPF</th>
-								<th>Data de Nascimento</th>
+								<th>Id Funcionario</th>
+								<th>Nome do destino</th>
+								<th>Cidade</th>
+								<th>Estado</th>
+								<th>Preço do Pacote</th>
+								<th>Promoção</th>
+								<th>%Desconto</th>
+								<th>Url da Foto</th>
 								<th>Ações</th>
 							</tr>
 						</thead>
 						<tbody>
-							<c:forEach items="${clientes}" var="cliente">
+							<c:forEach items="${destinos}" var="destino">
 								<tr>
-									<td>${cliente.idCliente}</td>
-									<td>${cliente.nome}</td>
-									<td>${cliente.email}</td>
-									<td>${cliente.senha}</td>
-									<td>${cliente.cpf}</td>
-									<td>${cliente.dataDeNascimento}</td>
+									<td>${destino.idDestino}</td>
+									<td>${destino.idFuncionario}</td>
+									<td>${destino.nome}</td>
+									<td>${destino.cidade}</td>
+									<td>${destino.estado}</td>
+									<td>${destino.precoDoPacote}</td>
+									<td>${destino.promocao}</td>
+									<td>${destino.desconto}</td>
+									<td>${destino.urlFoto}</td>
 									<td>
-										<a href="ClienteUpdate?clienteId=${cliente.idCliente}"> <button type="submit" class="btn btn-config"> <i class="bi bi-pencil-square"></i> Alterar</button></a>
-										<a href="ClienteRemove?clienteId=${cliente.idCliente}"> <button type="submit" class="btn btn-config-delete"> <i class="bi bi-trash3-fill"></i> Deletar</button></a>
+										<a href="DestinoUpdate?destinoId=${destino.idDestino}"> <button type="submit" class="btn btn-config"> <i class="bi bi-pencil-square"></i> Alterar</button></a>
+										<a href="DestinoRemove?destinoId=${destino.idDestino}"> <button type="submit" class="btn btn-config-delete"> <i class="bi bi-trash3-fill"></i> Deletar</button></a>
 									</td>
 								</tr>
 							</c:forEach>

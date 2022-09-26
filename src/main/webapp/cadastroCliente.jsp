@@ -1,11 +1,12 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"    pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
-<html>
+<html lang="pt-br">
+
 <head>
 <meta charset="ISO-8859-1">
-<title>Wallz Tour - Alterar Cliente</title>
+<title>Wallz Tour - Lista de Funcionários</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"         integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="../assets/style/main.css" />
+    <link rel="stylesheet" type="text/css" href="./assets/style/main.css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
 </head>
 <body>
@@ -21,7 +22,7 @@
                             <a class="nav-link active cor-link aba-selecionada" href="ClienteMakeAndSearch">Clientes</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link active cor-link " href="FuncionarioMakeAndSearch">Funcionários</a>
+                            <a class="nav-link active cor-link" href="FuncionarioMakeAndSearch">Funcionários</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link active cor-link" href="DestinoMakeAndSearch">Destinos</a>
@@ -58,33 +59,33 @@
 				<div class="row d-flex align-items-center justify-content-center">
 					<div class="col-md-7">
 						<hr>
-						<h3 class="titulo-aba d-flex justify-content-center">Alterar dados do Cliente</h3>
+						<h3 class="titulo-aba d-flex justify-content-center">Cadastro de Novo Cliente</h3>
 						<hr>
-						<form action="ClienteUpdate" method="POST">
-							<input value="${cliente.idCliente}" name="idCliente" style="visibility:hidden">
+						
+						<form action="ClienteMakeAndSearch" method="POST">
 							<div class="py-2">
 									<label>Nome completo</label>
-									<input value="${cliente.nome}" name="nome" maxlength="300" type="text" class="form-control" id="floatingInput1"> 
+									<input name="nome" maxlength="300" type="text" class="form-control" id="floatingInput1"> 
 							</div>
 							<div class="py-2">
 									<label>E-mail</label>
-									<input value="${cliente.email}" name="email" maxlength="150" type="text" class="form-control" id="floatingInput1"> 
+									<input name="email" maxlength="150" type="text" class="form-control" id="floatingInput1"> 
 							</div>
 							<div class="py-2">
 									<label>Senha</label>
-									<input value="${cliente.senha}" name="senha" maxlength="50" type="password" class="form-control" id="floatingInput1"> 
+									<input name="senha" maxlength="50" type="password" class="form-control" id="floatingInput1"> 
 							</div>
 							<div class="py-2">
 									<label>CPF (apenas números)</label>
-									<input value="${cliente.cpf}" name="cpf" maxlength="11" type="text" class="form-control"> 
+									<input name="cpf" maxlength="11" type="text" class="form-control"> 
 							</div>
 							<div class="py-2">
 									<label>Data de Nascimento</label>
-									<input value="${cliente.dataDeNascimento}" name="dataDeNascimento" type="date" class="form-control" placeholder="dataDeNascimento">
-							</div>								
+									<input name="dataDeNascimento" type="date" class="form-control" placeholder="dataDeNascimento">
+							</div>
 							<div class="d-flex flex-row align-items-center justify-content-center py-2">
-								<button class="btn btn-config" type="submit"> <i class="bi bi-check-lg"></i> Atualizar Cadastro</button>
-								<button class="btn btn-config-delete" type="reset"> <i class="bi bi-x-lg"></i> Desfazer Alterações </button>
+								<button class="btn btn-config" type="submit"> <i class="bi bi-check-lg"></i> Confirmar Cadastro</button>
+								<button class="btn btn-config-delete" type="reset"> <i class="bi bi-x-lg"></i> Limpar Formulário</button>
 							</div>
 						</form>
 						<br>
@@ -98,6 +99,6 @@
             Copyright © 2022 Recode. Todos os direitos reservados.
         </p>
     </footer>
-	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
 </body>
 </html>

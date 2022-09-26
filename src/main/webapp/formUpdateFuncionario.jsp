@@ -3,9 +3,9 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Wallz Tour - Alterar Cliente</title>
+<title>Wallz Tour - Alterar Funcionário</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"         integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="../assets/style/main.css" />
+    <link rel="stylesheet" type="text/css" href="./assets/style/main.css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
 </head>
 <body>
@@ -18,10 +18,10 @@
                 <nav>
                     <ul class="nav">
                         <li class="nav-item">
-                            <a class="nav-link active cor-link aba-selecionada" href="ClienteMakeAndSearch">Clientes</a>
+                            <a class="nav-link active cor-link" href="ClienteMakeAndSearch">Clientes</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link active cor-link " href="FuncionarioMakeAndSearch">Funcionários</a>
+                            <a class="nav-link active cor-link aba-selecionada" href="FuncionarioMakeAndSearch">Funcionários</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link active cor-link" href="DestinoMakeAndSearch">Destinos</a>
@@ -40,14 +40,14 @@
     		    <nav>
                     <ul class="nav px-5">
                         <li class="nav-item">
-                            <a class="nav-link active cor-link2" href="./cadastroCliente.jsp">Novo Cadastro</a>
+                            <a class="nav-link active cor-link2" href="./cadastroFuncionario.jsp">Novo Cadastro</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link active cor-link2" href="ClienteMakeAndSearch">Lista de Clientes</a>
+                            <a class="nav-link active cor-link2" href="FuncionarioMakeAndSearch">Lista de Funcionarios</a>
                         </li>
                     </ul>
                 </nav>
-               		 <form action="ClienteMakeAndSearch" method="GET" class="d-flex">
+               		 <form action="FuncionarioMakeAndSearch" method="GET" class="d-flex">
 						<input name="pesquisa" class="form-control me-2" type="search" placeholder="Digite o Nome" aria-label="Search">
 						<button class="btn search-icon" type="submit"> <i class="bi bi-search"></i> </button>
 					</form>
@@ -58,30 +58,34 @@
 				<div class="row d-flex align-items-center justify-content-center">
 					<div class="col-md-7">
 						<hr>
-						<h3 class="titulo-aba d-flex justify-content-center">Alterar dados do Cliente</h3>
+						<h3 class="titulo-aba d-flex justify-content-center">Alterar dados do funcionário</h3>
 						<hr>
-						<form action="ClienteUpdate" method="POST">
-							<input value="${cliente.idCliente}" name="idCliente" style="visibility:hidden">
+						<form action="FuncionarioUpdate" method="POST">
+							<input value="${funcionario.idFuncionario}" name="idFuncionario" style="visibility:hidden">
 							<div class="py-2">
 									<label>Nome completo</label>
-									<input value="${cliente.nome}" name="nome" maxlength="300" type="text" class="form-control" id="floatingInput1"> 
+									<input value="${funcionario.nome}" name="nome" maxlength="300" type="text" class="form-control" id="floatingInput1"> 
 							</div>
 							<div class="py-2">
 									<label>E-mail</label>
-									<input value="${cliente.email}" name="email" maxlength="150" type="text" class="form-control" id="floatingInput1"> 
+									<input value="${funcionario.email}" name="email" maxlength="150" type="text" class="form-control" id="floatingInput1"> 
 							</div>
 							<div class="py-2">
 									<label>Senha</label>
-									<input value="${cliente.senha}" name="senha" maxlength="50" type="password" class="form-control" id="floatingInput1"> 
+									<input value="${funcionario.senha}" name="senha" maxlength="50" type="password" class="form-control" id="floatingInput1"> 
 							</div>
 							<div class="py-2">
-									<label>CPF (apenas números)</label>
-									<input value="${cliente.cpf}" name="cpf" maxlength="11" type="text" class="form-control"> 
+								<label>Registro da Matrícula (apenas números)</label>
+								<input value="${funcionario.registroMatricula}" name="registroMatricula" maxlength="6" type="text" class="form-control"> 
 							</div>
-							<div class="py-2">
-									<label>Data de Nascimento</label>
-									<input value="${cliente.dataDeNascimento}" name="dataDeNascimento" type="date" class="form-control" placeholder="dataDeNascimento">
-							</div>								
+							<div class="d-flex justify-content-center py-3">
+								<select class="form-control" name="perfil" aria-label="Default select example">
+									<option value="${funcionario.perfil}" selected> Atualmente o perfil é de ${funcionario.perfil} </option>
+									<option value="Leitor">Leitor</option>
+									<option value="Editor">Editor</option>
+									<option value="Superusuário">Superusuário</option>
+								</select>
+							</div>
 							<div class="d-flex flex-row align-items-center justify-content-center py-2">
 								<button class="btn btn-config" type="submit"> <i class="bi bi-check-lg"></i> Atualizar Cadastro</button>
 								<button class="btn btn-config-delete" type="reset"> <i class="bi bi-x-lg"></i> Desfazer Alterações </button>

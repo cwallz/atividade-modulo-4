@@ -62,7 +62,7 @@ public class TransicaoDAO implements CRUD {
 	
 	public static List<Transicao> find(String pesquisa) {
 		
-		sql = String.format("SELECT * FROM tb_transicao WHERE id_cliente like '%s%%' OR id_destino LIKE '%s%%' ", pesquisa, pesquisa);
+		sql = String.format("SELECT * FROM tb_transicao WHERE id_transicao like '%%%s%%' ", pesquisa, pesquisa);
 		List<Transicao> transicoes = new ArrayList<Transicao>();
 		
 		try {
@@ -138,6 +138,7 @@ public class TransicaoDAO implements CRUD {
 			preparedStatement.setString(4, transicao.getDataViagem());
 			preparedStatement.setBoolean(5, transicao.isOptanteSeguro());
 			preparedStatement.setDouble(6, transicao.getTaxaSeguro());
+			preparedStatement.setInt(7, transicao.getIdTransicao());
 			
 			preparedStatement.executeUpdate();
 			

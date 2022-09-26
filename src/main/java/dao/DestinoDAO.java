@@ -64,7 +64,7 @@ public class DestinoDAO implements CRUD {
 	
 	public static List<Destino> find(String pesquisa) {
 		
-		sql = String.format("SELECT * FROM tb_destino WHERE nome like '%s%%' OR cidade LIKE '%s%%'  OR estado LIKE '%s%%'", pesquisa, pesquisa);
+		sql = String.format("SELECT * FROM tb_destino WHERE nome like '%%%s%%'", pesquisa, pesquisa);
 		List<Destino> destinos = new ArrayList<Destino>();
 		
 		try {
@@ -144,6 +144,7 @@ public class DestinoDAO implements CRUD {
 			preparedStatement.setBoolean(6, destino.isPromocao());
 			preparedStatement.setDouble(7, destino.getDesconto());
 			preparedStatement.setString(8, destino.getUrlFoto());
+			preparedStatement.setInt(9, destino.getIdDestino());
 			
 			preparedStatement.executeUpdate();
 			
